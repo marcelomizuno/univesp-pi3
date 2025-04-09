@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "Erro ao acessar o sistema",
+    "category": "Documentação",
+    "status": "Aberto",
+    "priority": "Alta",
+    "date": "2025-04-03T10:15:00Z"
+  },
+  {
+    "id": 2,
+    "title": "Solicitação de nova funcionalidade",
+    "category": "Treinamento/Capacitação",
+    "status": "Em andamento",
+    "priority": "Média",
+    "date": "2025-04-02T14:30:00Z"
+  },
+  {
+    "id": 3,
+    "title": "Dúvida sobre integração com API",
+    "category": "Atualização de Dados",
+    "status": "Fechado",
+    "priority": "Baixa",
+    "date": "2025-04-01T09:00:00Z"
+  },
+  {
+    "id": 4,
+    "title": "Problema no login",
+    "category": "Acompanhamento de Logs",
+    "status": "Aberto",
+    "priority": "Alta",
+    "date": "2025-04-03T08:45:00Z"
+  },
+  {
+    "id": 5,
+    "title": "Melhoria na interface do usuário",
+    "category": "Refatoração de Código",
+    "status": "Pendente",
+    "priority": "Média",
+    "date": "2025-03-31T16:20:00Z"
+  }
+]
