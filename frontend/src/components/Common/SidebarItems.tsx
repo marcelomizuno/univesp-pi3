@@ -1,12 +1,11 @@
-import { Box, Flex, Icon, Text } from "@chakra-ui/react";
-import { useQueryClient } from "@tanstack/react-query";
-import { Link as RouterLink } from "@tanstack/react-router";
-import { FiBriefcase, FiHome, FiSettings, FiUsers } from "react-icons/fi";
-import type { IconType } from "react-icons/lib";
+import { Box, Flex, Icon, Text } from "@chakra-ui/react"
+import { useQueryClient } from "@tanstack/react-query"
+import { Link as RouterLink } from "@tanstack/react-router"
+import { FiBriefcase, FiHome, FiSettings, FiUsers } from "react-icons/fi"
+import type { IconType } from "react-icons/lib"
 
-import type { UserPublic } from "@/client";
-import {BsShieldLock, BsTicketDetailedFill } from "react-icons/bs";
-
+import type { UserPublic } from "@/client"
+import { BsTicketDetailedFill } from "react-icons/bs"
 
 const items = [
   //Adicionando mais menus ( ticket), e renomeando seções
@@ -14,7 +13,6 @@ const items = [
   { icon: FiBriefcase, title: "Items", path: "/items" },
   { icon: FiSettings, title: "Configurações do Usuário", path: "/settings" },
   { icon: BsTicketDetailedFill, title: "Tickets", path: "/tickets" },
-  { icon: BsShieldLock, title: "Política de Privacidade", path: "/privacy_policy" },
 ]
 
 interface SidebarItemsProps {

@@ -58,7 +58,7 @@ const EditUser = ({ user }: EditUserProps) => {
     mutationFn: (data: UserUpdateForm) =>
       UsersService.updateUser({ userId: user.id, requestBody: data }),
     onSuccess: () => {
-      showSuccessToast("Usuário atualizado com sucesso!")
+      showSuccessToast("User updated successfully.")
       reset()
       setIsOpen(false)
     },
@@ -87,16 +87,16 @@ const EditUser = ({ user }: EditUserProps) => {
       <DialogTrigger asChild>
         <Button variant="ghost" size="sm">
           <FaExchangeAlt fontSize="16px" />
-          Editar Usuário
+          Edit User
         </Button>
       </DialogTrigger>
       <DialogContent>
         <form onSubmit={handleSubmit(onSubmit)}>
           <DialogHeader>
-            <DialogTitle>Editar Usuário</DialogTitle>
+            <DialogTitle>Edit User</DialogTitle>
           </DialogHeader>
           <DialogBody>
-            <Text mb={4}>Atualize os detalhes do usuário abaixo.</Text>
+            <Text mb={4}>Update the user details below.</Text>
             <VStack gap={4}>
               <Field
                 required
@@ -118,12 +118,12 @@ const EditUser = ({ user }: EditUserProps) => {
               <Field
                 invalid={!!errors.full_name}
                 errorText={errors.full_name?.message}
-                label="Nome completo"
+                label="Full Name"
               >
                 <Input
                   id="name"
                   {...register("full_name")}
-                  placeholder="Nome completo"
+                  placeholder="Full name"
                   type="text"
                 />
               </Field>
@@ -131,17 +131,17 @@ const EditUser = ({ user }: EditUserProps) => {
               <Field
                 invalid={!!errors.password}
                 errorText={errors.password?.message}
-                label="Senha"
+                label="Set Password"
               >
                 <Input
                   id="password"
                   {...register("password", {
                     minLength: {
                       value: 8,
-                      message: "A senha deve ter pelo menos 8 caracteres",
+                      message: "Password must be at least 8 characters",
                     },
                   })}
-                  placeholder="Senha"
+                  placeholder="Password"
                   type="password"
                 />
               </Field>
@@ -149,16 +149,16 @@ const EditUser = ({ user }: EditUserProps) => {
               <Field
                 invalid={!!errors.confirm_password}
                 errorText={errors.confirm_password?.message}
-                label="Confirme sua senha"
+                label="Confirm Password"
               >
                 <Input
                   id="confirm_password"
                   {...register("confirm_password", {
                     validate: (value) =>
                       value === getValues().password ||
-                      "As senhas não correspondem",
+                      "The passwords do not match",
                   })}
-                  placeholder="Senha"
+                  placeholder="Password"
                   type="password"
                 />
               </Field>
@@ -174,7 +174,7 @@ const EditUser = ({ user }: EditUserProps) => {
                       checked={field.value}
                       onCheckedChange={({ checked }) => field.onChange(checked)}
                     >
-                      É um super usuário?
+                      Is superuser?
                     </Checkbox>
                   </Field>
                 )}
@@ -188,7 +188,7 @@ const EditUser = ({ user }: EditUserProps) => {
                       checked={field.value}
                       onCheckedChange={({ checked }) => field.onChange(checked)}
                     >
-                      É ativo?
+                      Is active?
                     </Checkbox>
                   </Field>
                 )}
@@ -203,11 +203,11 @@ const EditUser = ({ user }: EditUserProps) => {
                 colorPalette="gray"
                 disabled={isSubmitting}
               >
-                Cancelar
+                Cancel
               </Button>
             </DialogActionTrigger>
             <Button variant="solid" type="submit" loading={isSubmitting}>
-              Salvar
+              Save
             </Button>
           </DialogFooter>
           <DialogCloseTrigger />
