@@ -60,7 +60,7 @@ const AddUser = () => {
     mutationFn: (data: UserCreate) =>
       UsersService.createUser({ requestBody: data }),
     onSuccess: () => {
-      showSuccessToast("User created successfully.")
+      showSuccessToast("Usuário criado com sucesso!")
       reset()
       setIsOpen(false)
     },
@@ -86,17 +86,17 @@ const AddUser = () => {
       <DialogTrigger asChild>
         <Button value="add-user" my={4}>
           <FaPlus fontSize="16px" />
-          Add User
+          Adicionar Usuário
         </Button>
       </DialogTrigger>
       <DialogContent>
         <form onSubmit={handleSubmit(onSubmit)}>
           <DialogHeader>
-            <DialogTitle>Add User</DialogTitle>
+            <DialogTitle>Adicionar Usuário</DialogTitle>
           </DialogHeader>
           <DialogBody>
             <Text mb={4}>
-              Fill in the form below to add a new user to the system.
+              Preencha o formulário abaixo para adicionar um novo usuário ao sistema.
             </Text>
             <VStack gap={4}>
               <Field
@@ -108,7 +108,7 @@ const AddUser = () => {
                 <Input
                   id="email"
                   {...register("email", {
-                    required: "Email is required",
+                    required: "Email é obrigatório",
                     pattern: emailPattern,
                   })}
                   placeholder="Email"
@@ -119,12 +119,12 @@ const AddUser = () => {
               <Field
                 invalid={!!errors.full_name}
                 errorText={errors.full_name?.message}
-                label="Full Name"
+                label="Nome completo"
               >
                 <Input
                   id="name"
                   {...register("full_name")}
-                  placeholder="Full name"
+                  placeholder="Nome completo"
                   type="text"
                 />
               </Field>
@@ -133,18 +133,18 @@ const AddUser = () => {
                 required
                 invalid={!!errors.password}
                 errorText={errors.password?.message}
-                label="Set Password"
+                label="Senha"
               >
                 <Input
                   id="password"
                   {...register("password", {
-                    required: "Password is required",
+                    required: "Senha é obrigatório",
                     minLength: {
                       value: 8,
-                      message: "Password must be at least 8 characters",
+                      message: "A senha deve ter pelo menos 8 caracteres",
                     },
                   })}
-                  placeholder="Password"
+                  placeholder="Senha"
                   type="password"
                 />
               </Field>
@@ -153,17 +153,17 @@ const AddUser = () => {
                 required
                 invalid={!!errors.confirm_password}
                 errorText={errors.confirm_password?.message}
-                label="Confirm Password"
+                label="Confirme sua senha"
               >
                 <Input
                   id="confirm_password"
                   {...register("confirm_password", {
-                    required: "Please confirm your password",
+                    required: "Por favor confirme sua senha",
                     validate: (value) =>
                       value === getValues().password ||
-                      "The passwords do not match",
+                      "As senhas não correspondem",
                   })}
-                  placeholder="Password"
+                  placeholder="Senha"
                   type="password"
                 />
               </Field>
@@ -179,7 +179,7 @@ const AddUser = () => {
                       checked={field.value}
                       onCheckedChange={({ checked }) => field.onChange(checked)}
                     >
-                      Is superuser?
+                      É super usuário?
                     </Checkbox>
                   </Field>
                 )}
@@ -193,7 +193,7 @@ const AddUser = () => {
                       checked={field.value}
                       onCheckedChange={({ checked }) => field.onChange(checked)}
                     >
-                      Is active?
+                      É ativo?
                     </Checkbox>
                   </Field>
                 )}

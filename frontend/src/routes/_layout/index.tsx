@@ -1,6 +1,10 @@
 import { Box, Container, Text } from "@chakra-ui/react"
 import { createFileRoute } from "@tanstack/react-router"
 
+//Styles
+//Para estilos globais que vão influenciar o projeto todo.
+import "@/styles/global.css";
+
 import useAuth from "@/hooks/useAuth"
 
 export const Route = createFileRoute("/_layout/")({
