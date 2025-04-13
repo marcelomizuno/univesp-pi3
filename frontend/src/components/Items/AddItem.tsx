@@ -1,5 +1,5 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { type SubmitHandler, useForm } from "react-hook-form";
+import { useMutation, useQueryClient } from "@tanstack/react-query"
+import { type SubmitHandler, useForm } from "react-hook-form"
 
 import {
   Button,
@@ -8,10 +8,9 @@ import {
   Input,
   Text,
   VStack,
-} from "@chakra-ui/react";
-
-import { useState } from "react";
-import { FaPlus } from "react-icons/fa";
+} from "@chakra-ui/react"
+import { useState } from "react"
+import { FaPlus } from "react-icons/fa"
 
 import { type ItemCreate, ItemsService } from "@/client"
 import type { ApiError } from "@/client/core/ApiError"
@@ -82,7 +81,7 @@ const AddItem = () => {
       <DialogContent>
         <form onSubmit={handleSubmit(onSubmit)}>
           <DialogHeader>
-            <DialogTitle>Adicionar Item</DialogTitle>
+            <DialogTitle>Add Item</DialogTitle>
           </DialogHeader>
           <DialogBody>
             <Text mb={4}>Fill in the details to add a new item.</Text>
@@ -125,7 +124,7 @@ const AddItem = () => {
                 colorPalette="gray"
                 disabled={isSubmitting}
               >
-                Cancelar
+                Cancel
               </Button>
             </DialogActionTrigger>
             <Button
@@ -134,7 +133,7 @@ const AddItem = () => {
               disabled={!isValid}
               loading={isSubmitting}
             >
-              Salvar
+              Save
             </Button>
           </DialogFooter>
         </form>

@@ -33,11 +33,11 @@ const DeleteUser = ({ id }: { id: string }) => {
   const mutation = useMutation({
     mutationFn: deleteUser,
     onSuccess: () => {
-      showSuccessToast("Usuário deletado com sucesso!")
+      showSuccessToast("The user was deleted successfully")
       setIsOpen(false)
     },
     onError: () => {
-      showErrorToast("Ocorreu um erro ao excluir o usuário")
+      showErrorToast("An error occurred while deleting the user")
     },
     onSettled: () => {
       queryClient.invalidateQueries()
@@ -59,19 +59,19 @@ const DeleteUser = ({ id }: { id: string }) => {
       <DialogTrigger asChild>
         <Button variant="ghost" size="sm" colorPalette="red">
           <FiTrash2 fontSize="16px" />
-          Deletar Usuário
+          Delete User
         </Button>
       </DialogTrigger>
       <DialogContent>
         <form onSubmit={handleSubmit(onSubmit)}>
           <DialogHeader>
-            <DialogTitle>Deletar Usuário</DialogTitle>
+            <DialogTitle>Delete User</DialogTitle>
           </DialogHeader>
           <DialogBody>
             <Text mb={4}>
-            Todos os itens associados a este usuário também serão{" "}
-            <strong>permanentemente excluídos.</strong> Tem certeza? Você não
-            poderá desfazer esta ação.
+              All items associated with this user will also be{" "}
+              <strong>permanently deleted.</strong> Are you sure? You will not
+              be able to undo this action.
             </Text>
           </DialogBody>
 
@@ -82,7 +82,7 @@ const DeleteUser = ({ id }: { id: string }) => {
                 colorPalette="gray"
                 disabled={isSubmitting}
               >
-                Cancelar
+                Cancel
               </Button>
             </DialogActionTrigger>
             <Button
@@ -91,7 +91,7 @@ const DeleteUser = ({ id }: { id: string }) => {
               type="submit"
               loading={isSubmitting}
             >
-              Deletar
+              Delete
             </Button>
           </DialogFooter>
           <DialogCloseTrigger />
