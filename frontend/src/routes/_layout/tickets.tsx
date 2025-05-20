@@ -144,7 +144,7 @@ function TicketsTable() {
           </MenuTrigger>
           <MenuContent>
             <MenuItem value="all" onClick={() => setFilter("status", undefined)}>
-              All
+              Todos
             </MenuItem>
             <MenuItem value="open" onClick={() => setFilter("status", "Aberto")}>
               Aberto
@@ -163,7 +163,7 @@ function TicketsTable() {
             <Button variant="outline">
               <HStack>
                 <FiFilter />
-                <span>Category: {category || "All"}</span>
+                <span>Categoria: {category || "All"}</span>
                 <FiChevronDown />
               </HStack>
             </Button>
@@ -173,13 +173,13 @@ function TicketsTable() {
               Todos
             </MenuItem>
             <MenuItem value="support" onClick={() => setFilter("category", "Suporte")}>
-              Support
+              Suporte
             </MenuItem>
             <MenuItem value="maintenance" onClick={() => setFilter("category", "Manutenção")}>
-              Maintenance
+              Manutenção
             </MenuItem>
             <MenuItem value="question" onClick={() => setFilter("category", "Dúvida")}>
-              Question
+              Dúvidas
             </MenuItem>
           </MenuContent>
         </MenuRoot>

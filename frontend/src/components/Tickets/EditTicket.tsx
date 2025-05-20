@@ -83,7 +83,7 @@ const EditTicket = ({ ticket }: EditTicketProps) => {
       <DialogTrigger asChild>
         <Button variant="ghost">
           <FaExchangeAlt fontSize="16px" />
-          Edit Ticket
+          Editar Ticket
         </Button>
       </DialogTrigger>
       <DialogContent>

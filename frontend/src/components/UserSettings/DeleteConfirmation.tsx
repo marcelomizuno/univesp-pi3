@@ -32,7 +32,7 @@ const DeleteConfirmation = () => {
   const mutation = useMutation({
     mutationFn: () => UsersService.deleteUserMe(),
     onSuccess: () => {
-      showSuccessToast("Your account has been successfully deleted")
+      showSuccessToast("Sua conta foi deletada com sucesso")
       setIsOpen(false)
       logout()
     },
@@ -59,7 +59,7 @@ const DeleteConfirmation = () => {
       >
         <DialogTrigger asChild>
           <Button variant="solid" colorPalette="red" mt={4}>
-            Delete
+            Deletar
           </Button>
         </DialogTrigger>
 
@@ -67,14 +67,14 @@ const DeleteConfirmation = () => {
           <form onSubmit={handleSubmit(onSubmit)}>
             <DialogCloseTrigger />
             <DialogHeader>
-              <DialogTitle>Confirmation Required</DialogTitle>
+              <DialogTitle>Confirmação Necessária</DialogTitle>
             </DialogHeader>
             <DialogBody>
               <Text mb={4}>
-                All your account data will be{" "}
-                <strong>permanently deleted.</strong> If you are sure, please
-                click <strong>"Confirm"</strong> to proceed. This action cannot
-                be undone.
+                Todos os dados da sua conta serão{" "}
+                <strong>permanentemente deletados.</strong> Se você tem certeza, por favor
+                clique <strong>"Confirmar"</strong> para continuar. Esta ação não pode
+                ser desfeita.
               </Text>
             </DialogBody>
 
@@ -86,7 +86,7 @@ const DeleteConfirmation = () => {
                     colorPalette="gray"
                     disabled={isSubmitting}
                   >
-                    Cancel
+                    Cancelar
                   </Button>
                 </DialogActionTrigger>
                 <Button
@@ -95,7 +95,7 @@ const DeleteConfirmation = () => {
                   type="submit"
                   loading={isSubmitting}
                 >
-                  Delete
+                  Deletar
                 </Button>
               </ButtonGroup>
             </DialogFooter>
