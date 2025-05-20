@@ -106,11 +106,11 @@ function TicketsTable() {
             <FiSearch />
           </EmptyState.Indicator>
           <VStack textAlign="center">
-            <EmptyState.Title>No tickets found</EmptyState.Title>
+            <EmptyState.Title>Nenhhum ticket encontrado</EmptyState.Title>
             <EmptyState.Description>
               {status || category 
-                ? "Try changing your filters" 
-                : "Create a new ticket to get started"}
+                ? "Tente mudar seus filtros" 
+                : "Crie um novo tíquete para começar"}
             </EmptyState.Description>
             {(status || category) && (
               <Button
@@ -120,7 +120,7 @@ function TicketsTable() {
                   setFilter("category", undefined)
                 }}
               >
-                Clear filters
+                Limpar filtros
               </Button>
             )}
           </VStack>
@@ -147,13 +147,13 @@ function TicketsTable() {
               All
             </MenuItem>
             <MenuItem value="open" onClick={() => setFilter("status", "Aberto")}>
-              Open
+              Aberto
             </MenuItem>
             <MenuItem value="in-progress" onClick={() => setFilter("status", "Em andamento")}>
-              In Progress
+              Em andamento
             </MenuItem>
             <MenuItem value="closed" onClick={() => setFilter("status", "Encerrado")}>
-              Closed
+              Encerrado
             </MenuItem>
           </MenuContent>
         </MenuRoot>
@@ -189,12 +189,12 @@ function TicketsTable() {
         <Table.Header>
           <Table.Row>
             <Table.ColumnHeader>ID</Table.ColumnHeader>
-            <Table.ColumnHeader>Title</Table.ColumnHeader>
-            <Table.ColumnHeader>Category</Table.ColumnHeader>
-            <Table.ColumnHeader>Priority</Table.ColumnHeader>
+            <Table.ColumnHeader>Titulo</Table.ColumnHeader>
+            <Table.ColumnHeader>Categoria</Table.ColumnHeader>
+            <Table.ColumnHeader>Prioridade</Table.ColumnHeader>
             <Table.ColumnHeader>Status</Table.ColumnHeader>
-            <Table.ColumnHeader>Created</Table.ColumnHeader>
-            <Table.ColumnHeader>Actions</Table.ColumnHeader>
+            <Table.ColumnHeader>Data</Table.ColumnHeader>
+            <Table.ColumnHeader>Ações</Table.ColumnHeader>
           </Table.Row>
         </Table.Header>
         <Table.Body>
@@ -245,7 +245,7 @@ function Tickets() {
   return (
     <Container maxW="full">
       <Heading size="lg" pt={12}>
-        Tickets Management
+        Gerenciamento de Tickets
       </Heading>
       <AddTicket />
       <TicketsTable />
