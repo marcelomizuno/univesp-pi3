@@ -58,12 +58,12 @@ const ViewTicket = ({ ticketId }: ViewTicketProps) => {
         requestBody: data,
       }),
     onSuccess: () => {
-      showSuccessToast("Comment added successfully")
+      showSuccessToast("Comentário adicionado com sucesso!")
       reset()
       queryClient.invalidateQueries({ queryKey: ["ticket", ticketId] })
     },
     onError: () => {
-      showErrorToast("Error adding comment")
+      showErrorToast("Erro ao adicionar comentário")
     },
   })
 
@@ -85,32 +85,32 @@ const ViewTicket = ({ ticketId }: ViewTicketProps) => {
       <DialogTrigger asChild>
         <Button variant="ghost">
           <FiEye fontSize="16px" />
-          View Details
+          Detalhes
         </Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Ticket Details</DialogTitle>
+          <DialogTitle>Detalhes do ticket</DialogTitle>
         </DialogHeader>
         <DialogBody maxH="70vh" overflow="auto">
           {isLoading ? (
-            <Text>Loading...</Text>
+            <Text>Carregando...</Text>
           ) : ticket ? (
             <VStack align="stretch" gap={4}>
               <Box>
                 <Heading size="md">{ticket.title}</Heading>
                 <Flex gap={2} mt={2} fontSize="sm" color="gray.500">
-                  <Text>Category: {ticket.category}</Text>
+                  <Text>Categoria: {ticket.category}</Text>
                   <Text>•</Text>
-                  <Text>Priority: {ticket.priority}</Text>
+                  <Text>Priordade: {ticket.priority}</Text>
                   <Text>•</Text>
                   <Text>Status: {ticket.status}</Text>
                 </Flex>
                 <Text mt={2} fontSize="sm" color="gray.500">
-                  Created: {formatDate(ticket.created_at)}
+                  Criado: {formatDate(ticket.created_at)}
                 </Text>
                 <Text mt={2} fontSize="sm" color="gray.500">
-                  Updated: {formatDate(ticket.updated_at)}
+                  Atualizado: {formatDate(ticket.updated_at)}
                 </Text>
               </Box>
 
@@ -121,7 +121,7 @@ const ViewTicket = ({ ticketId }: ViewTicketProps) => {
               <Box my={2} height="1px" bg="gray.200" />
 
               <Heading size="sm" mt={4}>
-                Comments ({ticket.comments.length})
+                Comentários ({ticket.comments.length})
               </Heading>
 
               {ticket.comments.length > 0 ? (
@@ -143,7 +143,7 @@ const ViewTicket = ({ ticketId }: ViewTicketProps) => {
                   ))}
                 </VStack>
               ) : (
-                <Text color="gray.500">No comments yet</Text>
+                <Text color="gray.500">Ainda não há comentários</Text>
               )}
 
               <Box my={2} height="1px" bg="gray.200" />
@@ -158,14 +158,14 @@ const ViewTicket = ({ ticketId }: ViewTicketProps) => {
                       display: "block",
                     }}
                   >
-                    Add a comment
+                    Adicionar um comentário
                   </label>
                   <Input
                     id="content"
                     {...register("content", {
-                      required: "Comment text is required",
+                      required: "Comentário é obrigatório",
                     })}
-                    placeholder="Write your comment here"
+                    placeholder="Escreva seu comentário aqui"
                   />
                   {errors.content && (
                     <Text color="red.500" fontSize="sm" mt={1}>
@@ -179,12 +179,12 @@ const ViewTicket = ({ ticketId }: ViewTicketProps) => {
                   type="submit"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? "Adding..." : "Add Comment"}
+                  {isSubmitting ? "Adicionando..." : "Adicionar um comentário"}
                 </Button>
               </form>
             </VStack>
           ) : (
-            <Text>Ticket not found</Text>
+            <Text>Ticket não encontrado</Text>
           )}
         </DialogBody>
         <DialogCloseTrigger />

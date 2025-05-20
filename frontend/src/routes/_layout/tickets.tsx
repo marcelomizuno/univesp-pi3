@@ -170,7 +170,7 @@ function TicketsTable() {
           </MenuTrigger>
           <MenuContent>
             <MenuItem value="all-categories" onClick={() => setFilter("category", undefined)}>
-              All
+              Todos
             </MenuItem>
             <MenuItem value="support" onClick={() => setFilter("category", "Suporte")}>
               Support

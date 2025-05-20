@@ -52,7 +52,7 @@ const AddTicket = () => {
     mutationFn: (data: TicketCreate) =>
       TicketsService.createTicket({ requestBody: data }),
     onSuccess: () => {
-      showSuccessToast("Ticket created successfully.")
+      showSuccessToast("Ticket criado com sucesso.")
       reset()
       setIsOpen(false)
     },
@@ -78,7 +78,7 @@ const AddTicket = () => {
       <DialogTrigger asChild>
         <Button value="add-ticket" my={4}>
           <FaPlus fontSize="16px" />
-          Add Ticket
+          Adicionar Ticket
         </Button>
       </DialogTrigger>
       <DialogContent>
@@ -120,9 +120,9 @@ const AddTicket = () => {
                       {...register("category")}
                       >
                         <option value="" disabled selected>Selecione uma categoria</option>
+                        <option value="Suporte">Suporte</option>
                         <option value="Manutenção">Manutenção</option>
-                        <option value="Performance">Performance</option>
-                        <option value="Redesign">Redesign</option>
+                        <option value="Dúvida">Dúvida</option>                        
                       </NativeSelect.Field>
                       <NativeSelect.Indicator />
                     </NativeSelect.Root>
@@ -147,28 +147,6 @@ const AddTicket = () => {
                       <NativeSelect.Indicator />
                     </NativeSelect.Root>
                   </Field.Root> 
-
-                  {/*Status*/}            
-                  <Field.Root required mb = "12px">
-                    <Field.Label htmlFor="status">
-                      Status
-                      <Field.RequiredIndicator />
-                    </Field.Label>
-                    <NativeSelect.Root>
-                      <NativeSelect.Field
-                      id="status"
-                      {...register("status")}
-                      >        
-                        <option value="" selected disabled>Selecione um status</option>            
-                        <option value="Aberto">Aberto</option>                    
-                        <option value="Em andamento" disabled>Em andamento</option>
-                        <option value="Encerrado" disabled>Encerrado</option>
-                        <option value="Cancelado" disabled>Cancelado</option>
-                      </NativeSelect.Field>
-                      <NativeSelect.Indicator />
-                    </NativeSelect.Root>
-                  </Field.Root>
-
                 </GridItem>
 
                 <GridItem colSpan={2} height="100%">
@@ -187,76 +165,7 @@ const AddTicket = () => {
                   </Field.Root>
                 </GridItem>
 
-              </Grid>
-              {/*
-              <Field
-                required
-                invalid={!!errors.title}
-                errorText={errors.title?.message}
-                label="Title"
-              >
-                <Input
-                  id="title"
-                  {...register("title", {
-                    required: "Title is required.",
-                  })}
-                  placeholder="Title"
-                  type="text"
-                />
-              </Field>
-
-              <Field
-                invalid={!!errors.description}
-                errorText={errors.description?.message}
-                label="Description"
-              >
-                <Textarea
-                  id="description"
-                  {...register("description")}
-                  placeholder="Description"
-                  rows={4}
-                />
-              </Field>
-
-              <Field
-                required
-                invalid={!!errors.category}
-                errorText={errors.category?.message}
-                label="Category"
-              >
-                <select
-                  id="category"
-                  className="chakra-select"
-                  {...register("category", {
-                    required: "Category is required.",
-                  })}
-                >
-                  <option value="Suporte">Support</option>
-                  <option value="Manutenção">Maintenance</option>
-                  <option value="Dúvida">Question</option>
-                </select>
-              </Field>
-
-              <Field
-                required
-                invalid={!!errors.priority}
-                errorText={errors.priority?.message}
-                label="Priority"
-              >
-                <select
-                  id="priority"
-                  className="chakra-select"
-                  {...register("priority", {
-                    required: "Priority is required.",
-                  })}
-                >
-                  <option value="Baixa">Low</option>
-                  <option value="Média">Medium</option>
-                  <option value="Alta">High</option>
-                </select>
-              </Field>  
-              */}
-              
+              </Grid>              
             </VStack>
           </DialogBody>
 

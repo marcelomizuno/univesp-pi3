@@ -2,15 +2,14 @@ import {
   Button,
   ButtonGroup,
   DialogActionTrigger,
-  Input,
-  Text,
-  Textarea,
+  Input, 
   VStack,
 } from "@chakra-ui/react"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { useState } from "react"
 import { type SubmitHandler, useForm } from "react-hook-form"
 import { FaExchangeAlt } from "react-icons/fa"
+import { Field, Grid, GridItem, NativeSelect, Textarea,Text } from "@chakra-ui/react";
 
 import { 
   type ApiError, 
@@ -30,7 +29,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "../ui/dialog"
-import { Field } from "../ui/field"
+
 
 interface EditTicketProps {
   ticket: TicketPublic
@@ -44,7 +43,7 @@ const EditTicket = ({ ticket }: EditTicketProps) => {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting },
+    formState: { /*errors,*/ isSubmitting },
   } = useForm<TicketUpdate>({
     mode: "onBlur",
     criteriaMode: "all",
@@ -76,7 +75,7 @@ const EditTicket = ({ ticket }: EditTicketProps) => {
 
   return (
     <DialogRoot
-      size={{ base: "xs", md: "md" }}
+      size="cover"
       placement="center"
       open={isOpen}
       onOpenChange={({ open }) => setIsOpen(open)}
@@ -90,88 +89,107 @@ const EditTicket = ({ ticket }: EditTicketProps) => {
       <DialogContent>
         <form onSubmit={handleSubmit(onSubmit)}>
           <DialogHeader>
-            <DialogTitle>Edit Ticket</DialogTitle>
+            <DialogTitle>Editar Ticket</DialogTitle>
           </DialogHeader>
           <DialogBody>
-            <Text mb={4}>Update the ticket details below.</Text>
+            <Text mb={4}>Atualize os detalhes do ticket abaixo</Text>
             <VStack gap={4}>
-              <Field
-                required
-                invalid={!!errors.title}
-                errorText={errors.title?.message}
-                label="Title"
+              <Grid  
+              width="100%"
+              templateColumns="repeat(4, 1fr)" gap="6"              
               >
-                <Input
-                  id="title"
-                  {...register("title")}
-                  placeholder="Title"
-                  type="text"
-                />
-              </Field>
+                <GridItem colSpan={2}>
+                  {/*Título*/}
+                  <Field.Root required mb = "12px">
+                    <Field.Label htmlFor="title">
+                      Título
+                      <Field.RequiredIndicator />
+                    </Field.Label>
+                    <Input 
+                    id="title"
+                    {...register("title")}
+                    placeholder="Ex: Problemas com formatação de texto" />
+                  </Field.Root>
 
-              <Field
-                invalid={!!errors.description}
-                errorText={errors.description?.message}
-                label="Description"
-              >
-                <Textarea
-                  id="description"
-                  {...register("description")}
-                  placeholder="Description"
-                  rows={4}
-                />
-              </Field>
+                  {/*Categoria*/}            
+                  <Field.Root required mb = "12px">
+                    <Field.Label htmlFor="category">
+                      Categoria
+                      <Field.RequiredIndicator />
+                    </Field.Label>
+                    <NativeSelect.Root>
+                      <NativeSelect.Field
+                      id="category"
+                      {...register("category")}
+                      >
+                        <option value="" disabled selected>Selecione uma categoria</option>
+                        <option value="Suporte">Suporte</option>
+                        <option value="Manutenção">Manutenção</option>
+                        <option value="Dúvida">Dúvida</option>       
+                      </NativeSelect.Field>
+                      <NativeSelect.Indicator />
+                    </NativeSelect.Root>
+                  </Field.Root>
 
-              <Field
-                required
-                invalid={!!errors.category}
-                errorText={errors.category?.message}
-                label="Category"
-              >
-                <select
-                  id="category"
-                  className="chakra-select"
-                  {...register("category")}
-                >
-                  <option value="Suporte">Support</option>
-                  <option value="Manutenção">Maintenance</option>
-                  <option value="Dúvida">Question</option>
-                </select>
-              </Field>
+                  {/*Prioridade*/}            
+                  <Field.Root required mb = "12px">
+                    <Field.Label htmlFor="priority">
+                      Prioridade
+                      <Field.RequiredIndicator />
+                    </Field.Label>
+                    <NativeSelect.Root>
+                      <NativeSelect.Field
+                      id="priority"
+                      {...register("priority")}
+                      >
+                        <option value="" disabled selected>Selecione uma prioridade</option>
+                        <option value="Alta">Alta</option>
+                        <option value="Média">Média</option>
+                        <option value="Baixa">Baixa</option>
+                      </NativeSelect.Field>
+                      <NativeSelect.Indicator />
+                    </NativeSelect.Root>
+                  </Field.Root> 
 
-              <Field
-                required
-                invalid={!!errors.priority}
-                errorText={errors.priority?.message}
-                label="Priority"
-              >
-                <select
-                  id="priority"
-                  className="chakra-select"
-                  {...register("priority")}
-                >
-                  <option value="Baixa">Low</option>
-                  <option value="Média">Medium</option>
-                  <option value="Alta">High</option>
-                </select>
-              </Field>
+                  {/*Status*/}            
+                  <Field.Root required mb = "12px">
+                    <Field.Label htmlFor="status">
+                      Status
+                      <Field.RequiredIndicator />
+                    </Field.Label>
+                    <NativeSelect.Root>
+                      <NativeSelect.Field
+                      id="status"
+                      {...register("status")}
+                      >        
+                        <option value="" selected disabled>Selecione um status</option>            
+                        <option value="Aberto">Aberto</option>                    
+                        <option value="Em andamento" disabled>Em andamento</option>
+                        <option value="Encerrado" disabled>Encerrado</option>                        
+                      </NativeSelect.Field>
+                      <NativeSelect.Indicator />
+                    </NativeSelect.Root>
+                  </Field.Root>
 
-              <Field
-                required
-                invalid={!!errors.status}
-                errorText={errors.status?.message}
-                label="Status"
-              >
-                <select
-                  id="status"
-                  className="chakra-select"
-                  {...register("status")}
-                >
-                  <option value="Aberto">Open</option>
-                  <option value="Em andamento">In Progress</option>
-                  <option value="Encerrado">Closed</option>
-                </select>
-              </Field>
+                </GridItem>
+
+                <GridItem colSpan={2} height="100%">
+                  {/*Descrição*/} 
+                  <Field.Root required height="100%">
+                    <Field.Label htmlFor="description">
+                      Descrição
+                      <Field.RequiredIndicator />
+                    </Field.Label>
+                    <Textarea 
+                    resize="none"
+                    minHeight="200px"
+                    id="description"
+                    {...register("description")}
+                    placeholder="Detalhe aqui os pontos importantes" />
+                  </Field.Root>
+                </GridItem>
+
+              </Grid>
             </VStack>
           </DialogBody>
 
