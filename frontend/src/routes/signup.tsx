@@ -1,4 +1,4 @@
-import { Container, Flex, Image, Input, Text } from "@chakra-ui/react"
+import { Container, Flex, /*Image,*/ Input, Text } from "@chakra-ui/react"
 import {
   Link as RouterLink,
   createFileRoute,
@@ -14,7 +14,7 @@ import { InputGroup } from "@/components/ui/input-group"
 import { PasswordInput } from "@/components/ui/password-input"
 import useAuth, { isLoggedIn } from "@/hooks/useAuth"
 import { confirmPasswordRules, emailPattern, passwordRules } from "@/utils"
-import Logo from "/assets/images/fastapi-logo.svg"
+//import Logo from "/assets/images/fastapi-logo.svg"
 
 export const Route = createFileRoute("/signup")({
   component: SignUp,
@@ -65,7 +65,7 @@ function SignUp() {
           justifyContent="center"
           gap={4}
           centerContent
-        >
+        >{/*
           <Image
             src={Logo}
             alt="FastAPI logo"
@@ -74,6 +74,7 @@ function SignUp() {
             alignSelf="center"
             mb={4}
           />
+          */}
           <Field
             invalid={!!errors.full_name}
             errorText={errors.full_name?.message}
@@ -83,9 +84,9 @@ function SignUp() {
                 id="full_name"
                 minLength={3}
                 {...register("full_name", {
-                  required: "Full Name is required",
+                  required: "Nome completo é obrigatório",
                 })}
-                placeholder="Full Name"
+                placeholder="Nome Completo"
                 type="text"
               />
             </InputGroup>
@@ -96,7 +97,7 @@ function SignUp() {
               <Input
                 id="email"
                 {...register("email", {
-                  required: "Email is required",
+                  required: "Email é obrigatório",
                   pattern: emailPattern,
                 })}
                 placeholder="Email"
@@ -108,23 +109,23 @@ function SignUp() {
             type="password"
             startElement={<FiLock />}
             {...register("password", passwordRules())}
-            placeholder="Password"
+            placeholder="Senha"
             errors={errors}
           />
           <PasswordInput
             type="confirm_password"
             startElement={<FiLock />}
             {...register("confirm_password", confirmPasswordRules(getValues))}
-            placeholder="Confirm Password"
+            placeholder="Confirme a senha"
             errors={errors}
           />
           <Button variant="solid" type="submit" loading={isSubmitting}>
-            Sign Up
+            Criar conta
           </Button>
           <Text>
-            Already have an account?{" "}
+            Já possui uma conta?{" "}
             <RouterLink to="/login" className="main-link">
-              Log In
+              Entrar
             </RouterLink>
           </Text>
         </Container>

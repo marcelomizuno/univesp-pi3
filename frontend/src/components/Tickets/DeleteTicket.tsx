@@ -71,7 +71,7 @@ const DeleteTicket = ({ id }: { id: string }) => {
           </DialogHeader>
           <DialogBody>
             <Text mb={4}>
-              Este tíquete será excluído permanentemente. Tem certeza? Você não
+              Este ticket será excluído permanentemente. Tem certeza? Você não
               poderá desfazer esta ação.
             </Text>
           </DialogBody>

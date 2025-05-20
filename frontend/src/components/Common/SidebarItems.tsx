@@ -1,18 +1,17 @@
 import { Box, Flex, Icon, Text } from "@chakra-ui/react"
 import { useQueryClient } from "@tanstack/react-query"
 import { Link as RouterLink } from "@tanstack/react-router"
-import { FiBriefcase, FiHome, FiSettings, FiUsers } from "react-icons/fi"
+import {FiHome, FiSettings, FiUsers } from "react-icons/fi"
 import type { IconType } from "react-icons/lib"
 
 import type { UserPublic } from "@/client"
 import { BsTicketDetailedFill } from "react-icons/bs"
 
-const items = [
-  //Adicionando mais menus ( ticket), e renomeando seções
+const items = [  
   { icon: FiHome, title: "Dashboard", path: "/" },
-  { icon: FiBriefcase, title: "Items", path: "/items" },
+  { icon: BsTicketDetailedFill, title: "Tickets", path: "/tickets" },  
   { icon: FiSettings, title: "Configurações do Usuário", path: "/settings" },
-  { icon: BsTicketDetailedFill, title: "Tickets", path: "/tickets" },
+  
 ]
 
 interface SidebarItemsProps {

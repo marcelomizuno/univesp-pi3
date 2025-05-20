@@ -164,8 +164,8 @@ const EditTicket = ({ ticket }: EditTicketProps) => {
                       >        
                         <option value="" selected disabled>Selecione um status</option>            
                         <option value="Aberto">Aberto</option>                    
-                        <option value="Em andamento" disabled>Em andamento</option>
-                        <option value="Encerrado" disabled>Encerrado</option>                        
+                        <option value="Em andamento">Em andamento</option>
+                        <option value="Encerrado">Encerrado</option>                        
                       </NativeSelect.Field>
                       <NativeSelect.Indicator />
                     </NativeSelect.Root>

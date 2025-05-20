@@ -1,4 +1,4 @@
-import { Container, Image, Input, Text } from "@chakra-ui/react"
+import { Container, /*Image,*/ Input, Text } from "@chakra-ui/react"
 import {
   Link as RouterLink,
   createFileRoute,
@@ -13,7 +13,7 @@ import { Field } from "@/components/ui/field"
 import { InputGroup } from "@/components/ui/input-group"
 import { PasswordInput } from "@/components/ui/password-input"
 import useAuth, { isLoggedIn } from "@/hooks/useAuth"
-import Logo from "/assets/images/fastapi-logo.svg"
+//import Logo from "/assets/images/fastapi-logo.svg"
 import { emailPattern, passwordRules } from "../utils"
 
 export const Route = createFileRoute("/login")({
@@ -65,7 +65,7 @@ function Login() {
         justifyContent="center"
         gap={4}
         centerContent
-      >
+      > {/*
         <Image
           src={Logo}
           alt="FastAPI logo"
@@ -74,6 +74,7 @@ function Login() {
           alignSelf="center"
           mb={4}
         />
+        */}
         <Field
           invalid={!!errors.username}
           errorText={errors.username?.message || !!error}
@@ -82,7 +83,7 @@ function Login() {
             <Input
               id="username"
               {...register("username", {
-                required: "Username is required",
+                required: "Nome de usuário é obrigatório",
                 pattern: emailPattern,
               })}
               placeholder="Email"
@@ -94,19 +95,19 @@ function Login() {
           type="password"
           startElement={<FiLock />}
           {...register("password", passwordRules())}
-          placeholder="Password"
+          placeholder="Senha"
           errors={errors}
         />
         <RouterLink to="/recover-password" className="main-link">
-          Forgot Password?
+          Esqueceu a senha?
         </RouterLink>
         <Button variant="solid" type="submit" loading={isSubmitting} size="md">
-          Log In
+          Entrar
         </Button>
         <Text>
-          Don't have an account?{" "}
+          Não tem uma conta?{" "}
           <RouterLink to="/signup" className="main-link">
-            Sign Up
+            Criar conta
           </RouterLink>
         </Text>
       </Container>

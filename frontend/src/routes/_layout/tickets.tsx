@@ -110,7 +110,7 @@ function TicketsTable() {
             <EmptyState.Description>
               {status || category 
                 ? "Tente mudar seus filtros" 
-                : "Crie um novo tíquete para começar"}
+                : "Crie um novo ticket para começar"}
             </EmptyState.Description>
             {(status || category) && (
               <Button
@@ -137,7 +137,7 @@ function TicketsTable() {
             <Button variant="outline">
               <HStack>
                 <FiFilter />
-                <span>Status: {status || "All"}</span>
+                <span>Status: {status || "Todos"}</span>
                 <FiChevronDown />
               </HStack>
             </Button>
@@ -163,7 +163,7 @@ function TicketsTable() {
             <Button variant="outline">
               <HStack>
                 <FiFilter />
-                <span>Categoria: {category || "All"}</span>
+                <span>Categoria: {category || "Todos"}</span>
                 <FiChevronDown />
               </HStack>
             </Button>

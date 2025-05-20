@@ -35,7 +35,7 @@ const NotFound = () => {
           textAlign="center"
           zIndex={1}
         >
-          The page you are looking for was not found.
+          A página que você está procurando não foi encontrada.
         </Text>
         <Center zIndex={1}>
           <Link to="/">
@@ -45,7 +45,7 @@ const NotFound = () => {
               mt={4}
               alignSelf="center"
             >
-              Go Back
+              Voltar
             </Button>
           </Link>
         </Center>
