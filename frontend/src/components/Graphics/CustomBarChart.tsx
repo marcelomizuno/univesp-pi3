@@ -1,64 +1,47 @@
 "use client"
 
-import { useEffect, useState } from "react"
 import { Chart, useChart } from "@chakra-ui/charts"
-import { BarChart, Bar, XAxis, Tooltip } from "recharts"
-import { Spinner, Box } from "@chakra-ui/react"
-
-interface UserStats {
-  user_id: string;
-  full_name: string;
-  email: string;
-  count: number;
-}
+import { Bar, BarChart, CartesianGrid, Tooltip, XAxis } from "recharts"
 
 export const CustomBarChart = () => {
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState<{ name: string; tickets: number }[]>([]);
-
-  useEffect(() => {
-    fetch("https://univesp-pi3.onrender.com/tickets/stats/users", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        period_type: "weekly",
-        start_date: "2025-05-01T00:00:00",
-        end_date: "2025-05-21T23:59:59",
-      }),
-    })
-      .then((res) => res.json())
-      .then((resData: { data: UserStats[] }) => {
-        const formatted = resData.data.map((user: UserStats) => ({
-          name: user.full_name || user.email,
-          tickets: user.count,
-        }))
-        setData(formatted)
-      })
-      .catch((err) => console.error("Erro na API:", err))
-      .finally(() => setLoading(false))
-  }, [])
-
   const chart = useChart({
-    data,
-    series: [{ name: "tickets", color: "teal.solid" }],
+    data: [
+      { sales: 63000, month: "June" },
+      { sales: 72000, month: "July" },
+      { sales: 85000, month: "August" },
+      { sales: 79000, month: "September" },
+      { sales: 90000, month: "October" },
+      { sales: 95000, month: "November" },
+      { sales: 88000, month: "December" },
+    ],
+    series: [{ name: "sales", color: "teal.solid" }],
   })
 
-  if (loading) {
-    return (
-      <Box h="200px" display="flex" alignItems="center" justifyContent="center">
-        <Spinner />
-      </Box>
-    )
-  }
-
   return (
-    <Chart.Root chart={chart}>
-      <BarChart data={chart.data}>
-        <XAxis dataKey={chart.key("name")} />
-        <Tooltip content={<Chart.Tooltip />} />
-        <Bar dataKey={chart.key("tickets")} fill={chart.color("teal.solid")} />
+    <Chart.Root maxH="md" chart={chart}>
+      <BarChart barCategoryGap="0" data={chart.data}>
+        <CartesianGrid stroke={chart.color("border.muted")} vertical={false} />
+        <XAxis
+          axisLine={false}
+          tickLine={false}
+          dataKey={chart.key("month")}
+          tickFormatter={(value) => value.slice(0, 3)}
+        />
+        <Tooltip
+          cursor={{ fill: chart.color("bg.muted") }}
+          animationDuration={100}
+          content={<Chart.Tooltip />}
+        />
+        {chart.series.map((item) => (
+          <Bar
+            isAnimationActive={false}
+            key={item.name}
+            dataKey={chart.key(item.name)}
+            fill={chart.color(item.color)}
+            stroke={chart.color("bg")}
+          />
+        ))}
       </BarChart>
     </Chart.Root>
   )
 }
-
