@@ -14,11 +14,13 @@ function Dashboard() {
   return (
     <>
       <Container maxW="full">
+        <h1>Dashboard</h1>
         <Box pt={12} m={4}>
           <Text fontSize="2xl" truncate maxW="sm">
             Olá, {currentUser?.full_name || currentUser?.email}
           </Text>
           <Text>Bem vindo, é bom te ver novamente!</Text>
+          
           <CustomBarChart/>  
           
         </Box>
