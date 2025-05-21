@@ -5,14 +5,13 @@ import { useEffect } from "react"
 export const TesteAPI = () => {
   useEffect(() => {
     const url = new URL("https://univesp-pi3.onrender.com/api/v1/tickets/stats/users")
-    url.searchParams.append("period_type", "weekly") // obrigatório
+    url.searchParams.append("period_type", "weekly")
 
-    // Apenas GET, nada de POST aqui!
     fetch(url.toString(), {
       method: "GET",
       headers: {
-        "Content-Type": "application/json"
-      }
+        "Content-Type": "application/json",
+      },
     })
       .then(async (res) => {
         const data = await res.json()
