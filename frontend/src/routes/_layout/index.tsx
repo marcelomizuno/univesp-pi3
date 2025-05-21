@@ -1,5 +1,6 @@
 import { Box, Container, Text } from "@chakra-ui/react"
 import { createFileRoute } from "@tanstack/react-router"
+import {CustomBarChart} from "@/components/Graphics/CustomBarChart";
 
 import useAuth from "@/hooks/useAuth"
 
@@ -18,6 +19,8 @@ function Dashboard() {
             Olá, {currentUser?.full_name || currentUser?.email}
           </Text>
           <Text>Bem vindo, é bom te ver novamente!</Text>
+          <CustomBarChart/>  
+          
         </Box>
       </Container>
     </>
