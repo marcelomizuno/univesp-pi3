@@ -84,7 +84,7 @@ const AddTicket = () => {
       <DialogContent>
         <form onSubmit={handleSubmit(onSubmit)}>
           <DialogHeader>
-            <DialogTitle>Add Ticket</DialogTitle>
+            <DialogTitle>Adicionar Ticket</DialogTitle>
           </DialogHeader>
           <DialogBody>
             <Text mb={4}>Preencha com os detalhes para adicionar um novo ticket.</Text>
