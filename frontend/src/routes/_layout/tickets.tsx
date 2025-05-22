@@ -106,11 +106,11 @@ function TicketsTable() {
             <FiSearch />
           </EmptyState.Indicator>
           <VStack textAlign="center">
-            <EmptyState.Title>No tickets found</EmptyState.Title>
+            <EmptyState.Title>Nenhhum ticket encontrado</EmptyState.Title>
             <EmptyState.Description>
               {status || category 
-                ? "Try changing your filters" 
-                : "Create a new ticket to get started"}
+                ? "Tente mudar seus filtros" 
+                : "Crie um novo ticket para começar"}
             </EmptyState.Description>
             {(status || category) && (
               <Button
@@ -120,7 +120,7 @@ function TicketsTable() {
                   setFilter("category", undefined)
                 }}
               >
-                Clear filters
+                Limpar filtros
               </Button>
             )}
           </VStack>
@@ -137,23 +137,23 @@ function TicketsTable() {
             <Button variant="outline">
               <HStack>
                 <FiFilter />
-                <span>Status: {status || "All"}</span>
+                <span>Status: {status || "Todos"}</span>
                 <FiChevronDown />
               </HStack>
             </Button>
           </MenuTrigger>
           <MenuContent>
             <MenuItem value="all" onClick={() => setFilter("status", undefined)}>
-              All
+              Todos
             </MenuItem>
             <MenuItem value="open" onClick={() => setFilter("status", "Aberto")}>
-              Open
+              Aberto
             </MenuItem>
             <MenuItem value="in-progress" onClick={() => setFilter("status", "Em andamento")}>
-              In Progress
+              Em andamento
             </MenuItem>
             <MenuItem value="closed" onClick={() => setFilter("status", "Encerrado")}>
-              Closed
+              Encerrado
             </MenuItem>
           </MenuContent>
         </MenuRoot>
@@ -163,23 +163,23 @@ function TicketsTable() {
             <Button variant="outline">
               <HStack>
                 <FiFilter />
-                <span>Category: {category || "All"}</span>
+                <span>Categoria: {category || "Todos"}</span>
                 <FiChevronDown />
               </HStack>
             </Button>
           </MenuTrigger>
           <MenuContent>
             <MenuItem value="all-categories" onClick={() => setFilter("category", undefined)}>
-              All
+              Todos
             </MenuItem>
             <MenuItem value="support" onClick={() => setFilter("category", "Suporte")}>
-              Support
+              Suporte
             </MenuItem>
             <MenuItem value="maintenance" onClick={() => setFilter("category", "Manutenção")}>
-              Maintenance
+              Manutenção
             </MenuItem>
             <MenuItem value="question" onClick={() => setFilter("category", "Dúvida")}>
-              Question
+              Dúvidas
             </MenuItem>
           </MenuContent>
         </MenuRoot>
@@ -189,12 +189,12 @@ function TicketsTable() {
         <Table.Header>
           <Table.Row>
             <Table.ColumnHeader>ID</Table.ColumnHeader>
-            <Table.ColumnHeader>Title</Table.ColumnHeader>
-            <Table.ColumnHeader>Category</Table.ColumnHeader>
-            <Table.ColumnHeader>Priority</Table.ColumnHeader>
+            <Table.ColumnHeader>Titulo</Table.ColumnHeader>
+            <Table.ColumnHeader>Categoria</Table.ColumnHeader>
+            <Table.ColumnHeader>Prioridade</Table.ColumnHeader>
             <Table.ColumnHeader>Status</Table.ColumnHeader>
-            <Table.ColumnHeader>Created</Table.ColumnHeader>
-            <Table.ColumnHeader>Actions</Table.ColumnHeader>
+            <Table.ColumnHeader>Data</Table.ColumnHeader>
+            <Table.ColumnHeader>Ações</Table.ColumnHeader>
           </Table.Row>
         </Table.Header>
         <Table.Body>
@@ -245,7 +245,7 @@ function Tickets() {
   return (
     <Container maxW="full">
       <Heading size="lg" pt={12}>
-        Tickets Management
+        Gerenciamento de Tickets
       </Heading>
       <AddTicket />
       <TicketsTable />

@@ -50,7 +50,7 @@ const UserInformation = () => {
     mutationFn: (data: UserUpdateMe) =>
       UsersService.updateUserMe({ requestBody: data }),
     onSuccess: () => {
-      showSuccessToast("User updated successfully.")
+      showSuccessToast("Usuário atualizado com sucesso.")
     },
     onError: (err: ApiError) => {
       handleError(err)
@@ -73,14 +73,14 @@ const UserInformation = () => {
     <>
       <Container maxW="full">
         <Heading size="sm" py={4}>
-          User Information
+          Informações do Usuário
         </Heading>
         <Box
           w={{ sm: "full", md: "sm" }}
           as="form"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <Field label="Full name">
+          <Field label="Nome Completo">
             {editMode ? (
               <Input
                 {...register("full_name", { maxLength: 30 })}
@@ -108,7 +108,7 @@ const UserInformation = () => {
             {editMode ? (
               <Input
                 {...register("email", {
-                  required: "Email is required",
+                  required: "Email é obrigatório",
                   pattern: emailPattern,
                 })}
                 type="email"
@@ -128,7 +128,7 @@ const UserInformation = () => {
               loading={editMode ? isSubmitting : false}
               disabled={editMode ? !isDirty || !getValues("email") : false}
             >
-              {editMode ? "Save" : "Edit"}
+              {editMode ? "Salvar" : "Editar"}
             </Button>
             {editMode && (
               <Button
@@ -137,7 +137,7 @@ const UserInformation = () => {
                 onClick={onCancel}
                 disabled={isSubmitting}
               >
-                Cancel
+                Cancelar
               </Button>
             )}
           </Flex>

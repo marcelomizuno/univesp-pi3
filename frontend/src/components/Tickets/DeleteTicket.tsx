@@ -33,11 +33,11 @@ const DeleteTicket = ({ id }: { id: string }) => {
   const mutation = useMutation({
     mutationFn: deleteTicket,
     onSuccess: () => {
-      showSuccessToast("The ticket was deleted successfully")
+      showSuccessToast("Ticket deletado com sucesso")
       setIsOpen(false)
     },
     onError: () => {
-      showErrorToast("An error occurred while deleting the ticket")
+      showErrorToast("Ocorreu um erro ao excluir o ticket")
     },
     onSettled: () => {
       queryClient.invalidateQueries({ queryKey: ["tickets"] })
@@ -59,7 +59,7 @@ const DeleteTicket = ({ id }: { id: string }) => {
       <DialogTrigger asChild>
         <Button variant="ghost" size="sm" colorPalette="red">
           <FiTrash2 fontSize="16px" />
-          Delete Ticket
+          Deletar Ticket
         </Button>
       </DialogTrigger>
 
@@ -67,12 +67,12 @@ const DeleteTicket = ({ id }: { id: string }) => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <DialogCloseTrigger />
           <DialogHeader>
-            <DialogTitle>Delete Ticket</DialogTitle>
+            <DialogTitle>Deletar Ticket</DialogTitle>
           </DialogHeader>
           <DialogBody>
             <Text mb={4}>
-              This ticket will be permanently deleted. Are you sure? You will not
-              be able to undo this action.
+              Este ticket será excluído permanentemente. Tem certeza? Você não
+              poderá desfazer esta ação.
             </Text>
           </DialogBody>
 
@@ -83,7 +83,7 @@ const DeleteTicket = ({ id }: { id: string }) => {
                 colorPalette="gray"
                 disabled={isSubmitting}
               >
-                Cancel
+                Cancelar
               </Button>
             </DialogActionTrigger>
             <Button
@@ -92,7 +92,7 @@ const DeleteTicket = ({ id }: { id: string }) => {
               type="submit"
               loading={isSubmitting}
             >
-              Delete
+              Deletar
             </Button>
           </DialogFooter>
         </form>
