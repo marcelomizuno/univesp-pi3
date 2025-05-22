@@ -176,7 +176,7 @@ const AddTicket = () => {
                 colorPalette="gray"
                 disabled={isSubmitting}
               >
-                Cancel
+                Cancelar
               </Button>
             </DialogActionTrigger>
             <Button
@@ -185,7 +185,7 @@ const AddTicket = () => {
               disabled={!isValid}
               loading={isSubmitting}
             >
-              Save
+              Salvar
             </Button>
           </DialogFooter>
         </form>
